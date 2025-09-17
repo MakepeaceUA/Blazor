@@ -1,0 +1,32 @@
+﻿@page "/products"
+
+<h3>Список товаров</h3>
+
+<div style="display: flex; flex-wrap: wrap;">
+    @foreach (var product in products)
+    {
+        <ProductCard Name="@product.Name"
+                     Price="@product.Price"
+                     Description="@product.Description"
+                     ImageUrl="@product.ImageUrl"/>
+    }
+</div>
+
+@code {
+    private List<Product> products = new List<Product>();
+
+    protected override void OnInitialized()
+    {
+        products.Add(new Product { Name = "Ноутбук", Price = 35000, Description = "Description1", ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg3FfvP784BUGkm38MG5C-uixQG-81ClsG6g&s" });
+        products.Add(new Product { Name = "Смартфон", Price = 20000, Description = "Description2", ImageUrl = "https://dm.kh.ua/74551-thickbox_default/smartfon-samsung-galaxy-a05-a055f-4128gb-black-sm-a055fzkgsek-ua.jpg" });
+        products.Add(new Product { Name = "Наушники", Price = 2500, Description = "Description3", ImageUrl = "https://ilandstore.ru/wa-data/public/shop/products/26/06/626/images/2546/2546.400.png" });
+    }
+
+    public class Product
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+    }
+}

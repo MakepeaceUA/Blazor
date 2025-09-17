@@ -1,0 +1,25 @@
+﻿<div class="card" style="width: 18rem; margin: 1rem;">
+    @if (!string.IsNullOrEmpty(ImageUrl))
+    {
+        <img src="@ImageUrl" class="card-img-top product-card-img" alt="Изображение @Name">
+    }
+    <div class="card-body">
+        <h5 class="card-title">@Name</h5>
+        <p class="card-text">@Description</p>
+        <p class="card-text"><strong>Цена: @Price.ToString("C")</strong></p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Name { get; set; } = "";
+
+    [Parameter]
+    public decimal Price { get; set; }
+
+    [Parameter]
+    public string Description { get; set; } = "";
+
+    [Parameter]
+    public string? ImageUrl { get; set; }
+}
